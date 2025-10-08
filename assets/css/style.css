@@ -129,7 +129,15 @@ a { text-decoration: none; }
 
 li { list-style: none; }
 
-img, ion-icon, a, button, time, span { display: block; }
+img, ion-icon, button, time, span { display: block; }
+
+/* Links in paragraphs should be inline */
+p a { 
+  display: inline; 
+  color: var(--light-gray);
+  font-weight: var(--fw-600);
+  text-decoration: underline;
+}
 
 button {
   font: inherit;
@@ -793,6 +801,10 @@ main {
   font-size: var(--fs-6);
   line-height: 1.3;
   margin-bottom: 7px;
+}
+
+.link-item-title {
+  text-decoration: underline;
 }
 
 .timeline-list span {
