@@ -157,3 +157,28 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+
+// news show more functionality
+const newsShowMoreBtn = document.getElementById('newsShowMoreBtn');
+const hiddenNewsItems = document.querySelectorAll('.news-item-hidden');
+
+let showAllNews = false;
+
+if (newsShowMoreBtn) {
+  newsShowMoreBtn.addEventListener('click', function() {
+    showAllNews = !showAllNews;
+    
+    hiddenNewsItems.forEach(item => {
+      if (showAllNews) {
+        item.classList.remove('news-item-hidden');
+        item.style.display = 'flex';
+      } else {
+        item.classList.add('news-item-hidden');
+        item.style.display = 'none';
+      }
+    });
+    
+    newsShowMoreBtn.textContent = showAllNews ? 'Show Less' : 'Show More';
+  });
+}

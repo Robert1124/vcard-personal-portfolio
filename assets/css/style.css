@@ -344,6 +344,11 @@ main {
   border-radius: 20px;
 }
 
+.avatar-box img {
+  width: 80px;
+  border-radius: 14px;
+}
+
 .info-content .name {
   color: var(--white-2);
   font-size: var(--fs-3);
@@ -512,7 +517,7 @@ main {
   line-height: 1.6;
 }
 
-.about-text p { margin-bottom: 15px; }
+.about-text p { margin-bottom: 0px; }
 
 
 
@@ -520,7 +525,7 @@ main {
  * #service 
  */
 
-.service { margin-bottom: 35px; }
+.service { margin-bottom: 10px; }
 
 .service-title { margin-bottom: 20px; }
 
@@ -561,6 +566,70 @@ main {
   font-size: var(--fs-6);
   font-weight: var(--fw-3);
   line-height: 1.6;
+}
+
+/* News list styles - simple lines */
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.news-item {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 2px 0;
+}
+
+.news-date {
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-700);
+  min-width: 80px;
+  flex-shrink: 0;
+  font-family: 'Courier New', monospace;
+  text-align: right;
+}
+
+.news-content {
+  flex: 1;
+}
+
+.news-title {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-400);
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.news-description {
+  color: var(--light-gray-70);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-300);
+  line-height: 1.5;
+}
+
+.news-item-hidden {
+  display: none;
+}
+
+.news-show-more-btn {
+  background: none;
+  border: none;
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-400);
+  text-decoration: underline;
+  padding: 0;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.news-show-more-btn:hover {
+  color: var(--orange-yellow-crayola);
 }
 
 
@@ -1351,7 +1420,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .avatar-box { border-radius: 30px; }
 
-  .avatar-box img { width: 120px; }
+  .avatar-box img { 
+    width: 120px; 
+    border-radius: 14px;
+  }
 
   .info-content .name { margin-bottom: 15px; }
 
@@ -1847,7 +1919,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar-info { flex-direction: column; }
 
-  .avatar-box img { width: 150px; }
+  .avatar-box img { 
+    width: 150px; 
+    border-radius: 14px;
+  }
 
   .info-content .name {
     white-space: nowrap;
