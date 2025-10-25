@@ -188,3 +188,22 @@ if (newsShowMoreBtn) {
     newsShowMoreBtn.textContent = showAllNews ? 'Show Less' : 'Show More';
   });
 }
+
+// Theme toggle functionality
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+
+// Check for saved theme preference or default to dark mode
+const currentTheme = localStorage.getItem('theme') || 'dark';
+html.setAttribute('data-theme', currentTheme);
+
+// Theme toggle event listener
+if (themeToggle) {
+  themeToggle.addEventListener('click', function() {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+}
