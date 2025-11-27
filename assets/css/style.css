@@ -377,6 +377,10 @@
   color: hsl(45deg 100% 46.04%);
 }
 
+[data-theme="light"] .about-show-more-btn:hover {
+  color: hsl(45deg 100% 46.04%);
+}
+
 /*-----------------------------------*\
   #RESET
 \*-----------------------------------*/
@@ -448,7 +452,7 @@ article {
   padding: 15px;
   box-shadow: var(--shadow-1);
   z-index: 1;
-  transition: background-color var(--transition-1), border-color var(--transition-1);
+  transition: background-color var(--transition-1), border-color var(--transition-1), box-shadow var(--transition-1);
 }
 
 .separator {
@@ -472,6 +476,7 @@ article {
   color: var(--orange-yellow-crayola);
   box-shadow: var(--shadow-1);
   z-index: 1;
+  transition: background var(--transition-1), color var(--transition-1), box-shadow var(--transition-1);
 }
 
 .icon-box::before {
@@ -481,6 +486,7 @@ article {
   background: var(--eerie-black-1);
   border-radius: inherit;
   z-index: -1;
+  transition: background var(--transition-1);
 }
 
 .icon-box ion-icon { --ionicon-stroke-width: 35px; }
@@ -561,6 +567,7 @@ article.active {
   box-shadow: var(--shadow-2);
   cursor: pointer;
   z-index: 1;
+  transition: background var(--transition-1), box-shadow var(--transition-1);
 }
 
 .content-card::before {
@@ -570,6 +577,7 @@ article.active {
   background: var(--bg-gradient-jet);
   border-radius: inherit;
   z-index: -1;
+  transition: background var(--transition-1);
 }
 
 
@@ -627,6 +635,7 @@ main {
   font-weight: var(--fw-500);
   letter-spacing: -0.25px;
   margin-bottom: 10px;
+  transition: color var(--transition-1);
 }
 
 .info-content .title {
@@ -637,6 +646,7 @@ main {
   width: max-content;
   padding: 3px 12px;
   border-radius: 8px;
+  transition: color var(--transition-1), background var(--transition-1);
 }
 
 .info_more-btn {
@@ -705,11 +715,13 @@ main {
   font-size: var(--fs-8);
   text-transform: uppercase;
   margin-bottom: 2px;
+  transition: color var(--transition-1);
 }
 
 .contact-info :is(.contact-link, time, address) {
   color: var(--white-2);
   font-size: var(--fs-7);
+  transition: color var(--transition-1);
 }
 
 .contact-info address { font-style: normal; }
@@ -726,6 +738,7 @@ main {
 .social-item .social-link {
   color: var(--light-gray-70);
   font-size: 18px;
+  transition: color var(--transition-1);
 }
 
 
@@ -787,9 +800,49 @@ main {
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
   line-height: 1.6;
+  position: relative;
+  transition: color var(--transition-1);
 }
 
-.about-text p { margin-bottom: 0px; }
+.about-text p { margin-bottom: 16px; }
+.about-text p:last-child { margin-bottom: 0; }
+
+.about-text-hidden {
+  opacity: 0.4;
+  max-height: 20px;
+  overflow: hidden;
+  position: relative;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%);
+}
+
+.about-text-hidden.showing {
+  opacity: 1;
+  max-height: 1000px;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+.about-show-more-btn {
+  background: none;
+  border: none;
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-400);
+  text-decoration: underline;
+  padding: 0;
+  margin-top: -35px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.about-show-more-btn:hover {
+  color: var(--orange-yellow-crayola);
+}
+
+b { font-weight: 900; }
 
 
 
@@ -862,6 +915,7 @@ main {
   flex-shrink: 0;
   font-family: 'Courier New', monospace;
   text-align: right;
+  transition: color var(--transition-1);
 }
 
 .news-content {
@@ -874,6 +928,7 @@ main {
   font-weight: var(--fw-400);
   margin-bottom: 5px;
   line-height: 1.4;
+  transition: color var(--transition-1);
 }
 
 .news-description {

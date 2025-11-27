@@ -164,6 +164,30 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 
+// Match heights of sidebar and article cards
+function matchCardHeights() {
+  const sidebar = document.querySelector('.sidebar');
+  const article = document.querySelector('article.about.active, article[data-page="about"]');
+  
+  if (sidebar && article && window.innerWidth >= 768) {
+    // Reset heights to get natural heights
+    sidebar.style.height = 'auto';
+    article.style.height = 'auto';
+    
+    // Get the actual heights
+    const sidebarHeight = sidebar.offsetHeight;
+    const articleHeight = article.offsetHeight;
+    
+    // Use the taller one for both
+    const maxHeight = Math.max(sidebarHeight, articleHeight);
+    
+    // Only set if they're different to avoid unnecessary updates
+    if (Math.abs(sidebarHeight - articleHeight) > 5) {
+      sidebar.style.height = maxHeight + 'px';
+      article.style.height = maxHeight + 'px';
+    }
+  }
+}
 
 // news show more functionality
 const newsShowMoreBtn = document.getElementById('newsShowMoreBtn');
@@ -186,6 +210,34 @@ if (newsShowMoreBtn) {
     });
     
     newsShowMoreBtn.textContent = showAllNews ? 'Show Less' : 'Show More';
+    
+    // Match card heights after content change
+    setTimeout(matchCardHeights, 100);
+  });
+}
+
+// about show more functionality
+const aboutShowMoreBtn = document.getElementById('aboutShowMoreBtn');
+const hiddenAboutParagraphs = document.querySelectorAll('.about-text-hidden');
+
+let showAllAbout = false;
+
+if (aboutShowMoreBtn) {
+  aboutShowMoreBtn.addEventListener('click', function() {
+    showAllAbout = !showAllAbout;
+    
+    hiddenAboutParagraphs.forEach(item => {
+      if (showAllAbout) {
+        item.classList.add('showing');
+      } else {
+        item.classList.remove('showing');
+      }
+    });
+    
+    aboutShowMoreBtn.textContent = showAllAbout ? 'Show Less' : 'Show More';
+    
+    // Match card heights after content change
+    setTimeout(matchCardHeights, 100);
   });
 }
 
@@ -207,3 +259,7 @@ if (themeToggle) {
     localStorage.setItem('theme', newTheme);
   });
 }
+
+// Match heights on load and resize
+window.addEventListener('load', matchCardHeights);
+window.addEventListener('resize', matchCardHeights);
